@@ -1,0 +1,88 @@
+<html>
+	<head>
+		<title> Sum app by Kamal Sir </title>
+		<style>
+			*{font-size:40px; font-family:Cambria;}
+			body{background-color:azure;}
+		</style>
+	</head>
+
+	<body>
+	<center>
+		<h1> Sum Finder app </h1>
+		<form onsubmit="compute()">
+			<input type="number" id="num" placehoder="Enter positive integer"/>
+			<br/><br/>
+			<input type="submit" value="M1"/>
+			<input type="submit" value="M2"/>
+			<input type="submit" value="M3"/>
+		</form>
+		<h2 id="msg"/>
+
+		<script>
+			function compute()
+			{
+				event.preventDefault();
+				let num = document.getElementById("num");
+				let msg = document.getElementById("msg");
+
+				if (num.value==="")
+				{
+					alert("Please enter integer");
+					msg.innerHTML="";
+					num.focus();
+					return;
+				}
+
+				let n = parseInt(num.value);
+
+				if (n<0)
+				{
+					alert("Negative number not allowed");
+					msg.innerHTML="";
+					num.focus();
+					return;
+				}
+
+				let action= document.activeElement.value;
+				let ans="";
+	
+				if(action==="M1")
+				{
+					let i=1, sum=0;
+					while(i<=n)
+					{
+						sum=sum+i;
+						i=i+1;
+					}
+					ans="sum= "+sum;
+					msg.innerHTML="M1-->"+ans;
+				}
+
+				else if(action==="M2")
+				{
+					let i=1, sum=0;
+					do
+					{
+						sum=sum+i;
+						i=i+1;
+					}while(i<=n)
+					ans="sum= "+sum;
+					msg.innerHTML="M2-->"+ans;
+				}
+
+				else if(action==="M3")
+				{	
+					let sum=0;
+					for(let i=1;i<=n;i++)
+					{
+						sum=sum+i;
+					}
+					ans="sum= "+sum;
+					msg.innerHTML="M3-->"+ans;
+				}
+			}
+		</script>
+	</center>
+	</body>
+</html>
